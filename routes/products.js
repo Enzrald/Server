@@ -26,7 +26,6 @@ router.post('/add',async function(req, res) {
       customerName: req.body.customerName,
     });
   } catch(e) {
-    console.log('Hmm sussy at Product.create()');
     console.log(e);
   }
   res.redirect('/products');
