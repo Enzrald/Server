@@ -26,7 +26,6 @@ router.post('/add',async function(req, res) {
     });
     console.log(user);
   } catch(e) {
-    console.log('Hmm sussy at User.create()');
     console.log(e);
   }
   res.redirect('/users');
