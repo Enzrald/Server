@@ -1,0 +1,17 @@
+{
+  "name": "draft",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "devStart": "nodemon -e handlebars,js,html app.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.4",
+    "mongoose": "^7.0.3",
+    "morgan": "~1.9.1"
+  }
+}

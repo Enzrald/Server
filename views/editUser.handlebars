@@ -1,0 +1,38 @@
+<div class="jumbotron text-center">
+    <h2>This is User Editor Page</h2>
+    <p>Change the field you want to update</p>
+</div>
+
+<div class="container">
+  <form class="form-horizontal" action="/users/editUser/{{user._id}}" method="post">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="name">Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="name" placeholder="Enter name" name="name"  value="{{user.name}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="age">Age:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="age" placeholder="Enter age" name="age" min="18" required value="{{user.age}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email:</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required value="{{user.email}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="password">Password:</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" id="password" placeholder="Enter password" name="password" required value="{{user.password}}">
+      </div>
+    </div>
+    <div class="form-group text-center">        
+      <div class="col-sm-12">
+        <button type="submit" class="btn btn-info">Update</button>
+      </div>
+    </div>
+  </form>
+</div>

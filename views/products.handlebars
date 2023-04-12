@@ -1,0 +1,150 @@
+<nav class="navbar navbar bg-danger">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="glyphicon glyphicon-th-list"></span>                    
+      </button>
+      <a class="navbar-brand" href="/">Assignment</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">
+  <h3>This is the products page</h3>
+  <p>There's absolutely nothing to see here</p>
+
+  <!-- Panel group -->
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default"><!-- Panel 1 -->
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Add New Product</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+        <div class="panel-body">
+          <form class="form-horizontal" action="/products/add" method="post"><!-- form -->
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="productID">Product ID:</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="productID" placeholder="Enter Product ID" name="productID" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="name">Name:</label>
+              <div class="col-sm-8">          
+                <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="price">Price:</label>
+              <div class="col-sm-8">          
+                <input type="number" class="form-control" id="price" placeholder="Enter Price" name="price" min="0" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="color">Color:</label>
+              <div class="col-sm-8">          
+                <input type="text" class="form-control" id="color" placeholder="Enter Color" name="color" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="quantity">Quantity:</label>
+              <div class="col-sm-8">          
+                <input type="number" class="form-control" id="quantity" placeholder="Enter Quantity" name="quantity" min="1" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="type">Type:</label>
+              <div class="col-sm-8">          
+                <input type="text" class="form-control" id="type" placeholder="Enter Type" name="type" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="customerID">Customer ID:</label>
+              <div class="col-sm-8">          
+                <input type="text" class="form-control" id="customerID" placeholder="Enter Customer ID" name="customerID" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="customerName">Customer Name:</label>
+              <div class="col-sm-8">          
+                <input type="text" class="form-control" id="customerName" placeholder="Enter Customer Name" name="customerName" required>
+              </div>
+            </div>
+            <div class="form-group">        
+              <div class="col-sm-12">
+                <button type="submit" class="btn btn-default">Add</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default"><!-- Panel 2 -->
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Product Table</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse in"><!-- .collapse in => open by default -->
+        <div class="panel-body">
+          <div class="table-responsive">          
+            <table class="table table-condensed table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Color</th>
+                  <th>Quantity</th>
+                  <th>Type</th>
+                  <th>Customer ID</th>
+                  <th>Customer Name</th>
+                  <th>Image</th>
+                  <th>Create Date</th>
+                  <th>Update Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each products}}
+                <tr>
+                  <td>{{this.productID}}</td>
+                  <td>{{this.name}}</td>
+                  <td>{{this.price}}</td>
+                  <td>{{this.color}}</td>
+                  <td>{{this.quantity}}</td>
+                  <td>{{this.type}}</td>
+                  <td>{{this.customerID}}</td>
+                  <td>{{this.customerName}}</td>
+                  <td>{{this.image}}</td>
+                  <td>{{this.createDate}}</td>
+                  <td>{{this.updateDate}}</td>
+                  <td>
+                    <form action="/products/edit/{{this._id}}" method="post">
+                      <button type="submit" class="btn btn-warning">Edit</button>
+                    </form>
+                  </td>
+                  <td>
+                    <form action="/products/delete/{{this._id}}" method="post">
+                      <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+</div>
