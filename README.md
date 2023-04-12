@@ -3,4 +3,4 @@
 - Chưa phân quyền
 - Chưa login
   
-Note: Gắn link MongoDB vào 'srv' trong 'routes/srv-address'
+Note: Gắn link MongoDB vào 'srv' trong 'helpers/srv-address'
