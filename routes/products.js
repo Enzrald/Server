@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Product = require('../models/mdProduct');
 var mongoose = require('mongoose');
-var srv = require('../helpers/server-address')//My own server
-// var srv = require('../helpers/srv-address');
+var srv = require('../helpers/srv-address');
 
 mongoose.connect(srv);
 
